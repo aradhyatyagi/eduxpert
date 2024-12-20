@@ -1,0 +1,87 @@
+/* General Body Styling with Background Image */
+body {
+    font-family: Arial, sans-serif;
+    background: url('image.png') no-repeat center center fixed; /* Replace 'study4.jpg' with your image path */
+    background-size: cover;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    backdrop-filter: blur(10px); /* Optional: Adds a slight blur to background */
+  }
+  
+  /* Container Styling */
+  .login-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    padding: 3rem;
+    text-align: center;
+    transform: translateY(-50px);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .login-container:hover {
+    transform: translateY(-60px); /* Slight upward movement when hovered */
+  }
+  
+  /* Header Styling for Project Name and Quote */
+  .header {
+    margin-bottom: 2rem; /* Adds spacing below the header */
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    color: #1a73e8;
+    margin-bottom: 0.5rem;
+  }
+  
+  .quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #555;
+    margin-top: 1rem; /* Adds space between the quote and the form */
+    opacity: 0.8;
+  }
+  
+  /* Form and Input Styling */
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f7f7f7; /* Light background for inputs */
+  }
+  
+  /* Login Button Styling */
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded corners for the button */
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 1rem; /* Adds space between button and inputs */
+  }
+  
+  button:hover {
+    background-color: #0059b3;
+    transform: translateY(-2px); /* Slight upward movement when hovered */
+  }
+  
+  button:active {
+    transform: translateY(2px); /* Button press effect */
+  }
+  
