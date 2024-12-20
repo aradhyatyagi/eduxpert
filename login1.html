@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - EduXpert</title>
+  <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+</head>
+<body>
+  <div class="login-container">
+    <h1>EduXpert</h1>
+    <p class="quote">"Empowering your learning journey with knowledge."</p>
+
+    <!-- Login Form -->
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="button" onclick="validateLogin()">Login</button>
+    </form>
+
+    <!-- Error Message -->
+    <p id="error-message" class="error-message"></p>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function validateLogin() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMessage = document.getElementById("error-message");
+
+      // Reset error message
+      errorMessage.textContent = "";
+
+      // Send POST request to backend
+      fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Redirect to home.html
+            window.location.href = "about.html";
+          } else {
+            return response.json();
+          }
+        })
+        .then((data) => {
+          if (data && data.message) {
+            errorMessage.textContent = data.message;
+          }
+        })
+        .catch((error) => {
+          errorMessage.textContent = "Something went wrong. Please try again.";
+          console.error("Error:", error);
+        });
+    }
+    
+  </script>
+</body>
+</html>
