@@ -2,7 +2,20 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+
+
+// Dynamic PORT for Render
+const PORT = process.env.PORT || 3000;
+
+// Serve Static Files (e.g., HTML, CSS, JS, Images)
+app.use(express.static(path.join(__dirname, "public")));
+
+// Default Route
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Start the Serve
 
 // Middleware
 app.use(cors());
